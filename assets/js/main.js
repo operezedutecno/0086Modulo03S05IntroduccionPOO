@@ -11,10 +11,23 @@ function Ventas(producto, precio) {
     }
 }
 
-const numero = 10
+var ventas = [];
 
-const venta1 = new Ventas("Monitor", 50)
+const venta1 = new Ventas("Monitor", 120)
+// console.log("Venta1",venta1);
+// console.log("Porcentaje", venta1.obtenerPorcentaje());
+// console.log("Comisión", venta1.obtenerComision());
 
-console.log("Venta1",venta1);
-console.log("Porcentaje", venta1.obtenerPorcentaje());
-console.log("Comisión", venta1.obtenerComision());
+ventas.push(venta1)
+ventas.push(new Ventas("Teclado", 30))
+ventas.push(new Ventas("Mouse", 20))
+
+var suma = 0;
+for (let index = 0; index < ventas.length; index++) {
+    const element = ventas[index];
+    var comision = element.obtenerComision()
+    suma = suma + comision
+    console.log(element.producto, comision);
+}
+
+console.log(suma);
